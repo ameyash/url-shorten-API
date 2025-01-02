@@ -31,9 +31,7 @@ public class SecurityConfig {
             .csrf().disable()
             .cors().and()  // Enable CORS
             .authorizeHttpRequests()
-                .requestMatchers("/api/auth/**").permitAll()// Allow public access to authentication endpoints
-                .requestMatchers("/api/stock/**").authenticated() 
-                .requestMatchers("/api/stocks/finnhub/**").authenticated()
+                .requestMatchers("/api/**").permitAll()// Allow public access to authentication endpoints
                 .anyRequest().authenticated()  // All other requests need authentication
             .and()
             .sessionManagement()
